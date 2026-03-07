@@ -10,13 +10,14 @@ const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
   },
   maxPoolSize: 10,
   minPoolSize: 5,
   serverSelectionTimeoutMS: 5000,
   socketTimeoutMS: 45000,
+  tls: true,
+  tlsAllowInvalidCertificates: false,
+  connectTimeoutMS: 30000,
 });
 
 // Database and collection names
