@@ -79,7 +79,7 @@ const toBase64 = (file: File): Promise<string> =>
   });
 
 const submitRegistration = async (payload: Record<string, any>) => {
-  const API_URL = 'http://localhost:3000/api/register';
+  const API_URL = import.meta.env.VITE_BACKEND_URL ? `${import.meta.env.VITE_BACKEND_URL}/api/register` : 'http://localhost:3000/api/register';
 
   const response = await fetch(API_URL, {
     method: 'POST',

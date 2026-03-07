@@ -3,7 +3,9 @@ import cors from "cors";
 import { connectDB, insertRegistration, getAllRegistrations, closeDB } from "./db.js";
 
 const app = express();
-const port = 3000;
+
+// Connect to database
+connectDB();
 
 // Middleware
 app.use(cors()); // Enable CORS for frontend
@@ -121,22 +123,5 @@ process.on('SIGINT', async () => {
   process.exit(0);
 });
 
-// Start server
-async function startServer() {
-  try {
-    // Connect to MongoDB before starting the server
-    await connectDB();
-    
-    app.listen(port, () => {
-      console.log(`🚀 Server running on http://localhost:${port}`);
-      console.log(`📋 API endpoints:`);
-      console.log(`   POST http://localhost:${port}/api/register`);
-      console.log(`   GET  http://localhost:${port}/api/registrations`);
-    });
-  } catch (error) {
-    console.error('Failed to start server:', error);
-    process.exit(1);
-  }
-}
-
-startServer();
+// Export the Express app for Vercel
+export default app;
