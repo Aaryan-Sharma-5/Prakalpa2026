@@ -112,7 +112,7 @@ export default function RegistrationForm() {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [projectFile, setProjectFile] = useState<File | null>(null);
+  const [projectLink, setProjectLink] = useState('');
   const [paymentScreenshot, setPaymentScreenshot] = useState<File | null>(null);
   const [paymentScreenshotBase64, setPaymentScreenshotBase64] = useState<string>('');
   const [showMessage, setShowMessage] = useState(false);
@@ -223,7 +223,17 @@ export default function RegistrationForm() {
     if (!formData.domain) newErrors.domain = 'This is a required question';
     if (formData.domain === 'other' && !formData.domainOther) newErrors.domainOther = 'This is a required question';
     if (!formData.title) newErrors.title = 'This is a required question';
-    if (!projectFile) newErrors.projectFile = 'This is a required question';
+
+    if (!projectLink) {
+      newErrors.projectLink = 'This is a required question';
+    } else {
+      try {
+        new URL(projectLink);
+      } catch {
+        newErrors.projectLink = 'Please enter a valid Google Drive or Dropbox URL';
+      }
+    }
+
     if (!paymentScreenshot) newErrors.paymentScreenshot = 'This is a required question';
 
     setErrors(newErrors);
@@ -231,7 +241,7 @@ export default function RegistrationForm() {
     if (Object.keys(newErrors).length > 0) {
       const firstErrorKey = Object.keys(newErrors)[0];
       let errorTab = 1;
-      if (['projectCategory', 'domain', 'domainOther', 'title', 'projectFile'].includes(firstErrorKey)) errorTab = 2;
+      if (['projectCategory', 'domain', 'domainOther', 'title', 'projectLink'].includes(firstErrorKey)) errorTab = 2;
       if (['paymentScreenshot'].includes(firstErrorKey)) errorTab = 3;
       setCurrentTab(errorTab);
       setTimeout(() => {
@@ -268,6 +278,7 @@ export default function RegistrationForm() {
           category: formData.projectCategory,
           domain: formData.domain === 'other' ? formData.domainOther : formData.domain,
           title: formData.title,
+          link: projectLink,
         },
         payment: {
           amount: REGISTRATION_FEE,
@@ -286,7 +297,7 @@ export default function RegistrationForm() {
           setShowMessage(false);
           setIsOpen(false);
           setFormData({ numberOfParticipants: '', projectCategory: '', domain: '', domainOther: '', title: '', participants: [{}, {}, {}, {}] });
-          setProjectFile(null);
+          setProjectLink('');
           setPaymentScreenshot(null);
           setPaymentScreenshotBase64('');
           setErrors({});
@@ -296,9 +307,9 @@ export default function RegistrationForm() {
       }
     } catch (err) {
       console.error('Submission failed:', err);
-      setMessage({ 
-        type: 'error', 
-        text: err instanceof Error ? err.message : 'Failed to submit registration. Please try again.' 
+      setMessage({
+        type: 'error',
+        text: err instanceof Error ? err.message : 'Failed to submit registration. Please try again.'
       });
       setShowMessage(true);
       setTimeout(() => {
@@ -558,14 +569,22 @@ export default function RegistrationForm() {
                           <Input label="Project/Paper Title" required name="title" value={formData.title} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange('title', e.target.value)} placeholder="Enter project/paper title" error={errors.title} />
                         </div>
                         <div className="bg-black/40 backdrop-blur-sm border-2 border-purple-500/30 rounded-lg p-6">
-                          <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-purple-400 mb-4" style={{ fontFamily: 'Pricedown, sans-serif' }}>DOCUMENT UPLOAD</h3>
-                          <div className="space-y-2" data-error={errors.projectFile ? 'projectFile' : undefined}>
-                            <label className="text-purple-300 font-semibold block">Project Presentation/Paper <span className="text-pink-500">*</span></label>
-                            <input type="file" accept=".pdf" onChange={(e) => setProjectFile(e.target.files?.[0] || null)} className="w-full px-4 py-3 bg-black/60 border-2 border-purple-500/40 rounded text-white file:bg-pink-500 file:text-white file:border-0 file:px-4 file:py-2 file:mr-4 file:rounded cursor-pointer" />
-                            <p className="text-sm text-gray-400">PDF format only</p>
-                            {projectFile && <p className="text-sm text-purple-300">✓ Selected: {projectFile.name}</p>}
-                            {errors.projectFile && <span className="text-red-400 text-sm">{errors.projectFile}</span>}
-                          </div>
+                          <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-purple-400 mb-4" style={{ fontFamily: 'Pricedown, sans-serif' }}>PROJECT PRESENTATION/PAPER</h3>
+                          <Input
+                            label="Project Presentation/Paper (Google Drive/Dropbox URL)"
+                            required
+                            name="projectLink"
+                            value={projectLink}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              setProjectLink(e.target.value);
+                              if (errors.projectLink) {
+                                setErrors(prev => { const n = { ...prev }; delete n.projectLink; return n; });
+                              }
+                            }}
+                            placeholder="Enter viewable Google Drive or Dropbox link"
+                            error={errors.projectLink}
+                          />
+                          <p className="text-sm text-gray-400 mt-2">Please ensure the link is publicly accessible (Anyone with the link can view).</p>
                         </div>
                       </div>
                     )}
