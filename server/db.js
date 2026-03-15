@@ -1,4 +1,4 @@
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient, ServerApiVersion, ObjectId } from 'mongodb';
 import dotenv from 'dotenv';
 
 // Load environment variables from .env file
@@ -51,17 +51,17 @@ async function insertRegistration(registrationData) {
     if (!isConnected) {
       await connectDB();
     }
-    
+
     const db = client.db(DB_NAME);
     const collection = db.collection(COLLECTION_NAME);
-    
+
     // Add timestamp
     const dataWithTimestamp = {
       ...registrationData,
       submittedAt: new Date(),
-      status: 'pending' // Can be: pending, approved, rejected
+      status: 'pending' // allowed: pending, approved
     };
-    
+
     const result = await collection.insertOne(dataWithTimestamp);
     console.log("Registration inserted with ID:", result.insertedId);
     return result;
@@ -95,9 +95,11 @@ async function getAllRegistrations() {
 // Get registration by ID
 async function getRegistrationById(id) {
   try {
+    if (!isConnected) await connectDB();
     const db = client.db(DB_NAME);
     const collection = db.collection(COLLECTION_NAME);
-    const registration = await collection.findOne({ _id: id });
+    const _id = typeof id === 'string' ? new ObjectId(id) : id;
+    const registration = await collection.findOne({ _id });
     return registration;
   } catch (error) {
     console.error("Error fetching registration:", error);
@@ -108,10 +110,16 @@ async function getRegistrationById(id) {
 // Update registration status
 async function updateRegistrationStatus(id, status) {
   try {
+    if (!['pending', 'approved', 'rejected'].includes(status)) {
+      throw new Error('Invalid status');
+    }
+    if (!isConnected) await connectDB();
+
     const db = client.db(DB_NAME);
     const collection = db.collection(COLLECTION_NAME);
+    const _id = typeof id === 'string' ? new ObjectId(id) : id;
     const result = await collection.updateOne(
-      { _id: id },
+      { _id },
       { $set: { status, updatedAt: new Date() } }
     );
     return result;

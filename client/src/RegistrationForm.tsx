@@ -78,6 +78,12 @@ const toBase64 = (file: File): Promise<string> =>
     reader.readAsDataURL(file);
   });
 
+const stripDataUrlPrefix = (dataUrl: string) => {
+  const s = String(dataUrl || '');
+  const idx = s.indexOf('base64,');
+  return idx >= 0 ? s.slice(idx + 'base64,'.length) : s;
+};
+
 const submitRegistration = async (payload: Record<string, any>) => {
   const API_URL = import.meta.env.VITE_BACKEND_URL ? `${import.meta.env.VITE_BACKEND_URL}/api/register` : 'http://localhost:3000/api/register';
 
@@ -157,9 +163,10 @@ export default function RegistrationForm() {
 
     if (file) {
       try {
-        const b64 = await toBase64(file);
-        setPaymentScreenshotBase64(b64);
-        console.log('Screenshot base64 ready. Length:', b64.length);
+        const dataUrl = await toBase64(file);
+        const rawB64 = stripDataUrlPrefix(dataUrl);
+        setPaymentScreenshotBase64(rawB64);
+        console.log('Screenshot base64 ready. Length:', rawB64.length);
       } catch (err) {
         console.error('Failed to encode screenshot:', err);
         setPaymentScreenshotBase64('');
