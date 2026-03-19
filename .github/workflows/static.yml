@@ -12,11 +12,11 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     # This tells GitHub to run all npm commands inside your client folder
     defaults:
       run:
-        working-directory: ./client 
+        working-directory: ./client
 
     steps:
       - name: Checkout code
@@ -43,8 +43,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # This tells GitHub EXACTLY which folder to host!
-          path: './client/dist'
+          # This path is relative to the repository root (NOT the job working-directory)
+          path: ./client/dist
 
       - name: Deploy to GitHub Pages
         id: deployment
