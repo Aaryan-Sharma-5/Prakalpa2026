@@ -124,7 +124,7 @@ export default function LoadingScreen({
           text-lg sm:text-3xl md:text-4xl
           tracking-wide
         ">
-          Loading Screen
+          Loading Screen...
         </span>
 
         <button
