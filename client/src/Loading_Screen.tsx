@@ -124,7 +124,7 @@ export default function LoadingScreen({
           text-lg sm:text-3xl md:text-4xl
           tracking-wide
         ">
-          TIP: Click anywhere to enable sound.
+          Loading Screen
         </span>
 
         <button
