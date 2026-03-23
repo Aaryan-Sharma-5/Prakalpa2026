@@ -15,33 +15,33 @@ const Timeline: React.FC = () => {
   const items: TimelineItem[] = [
     {
       id: 1,
-      title: 'HEIST PLANNING',
+      title: 'REGISTRATION & KICKOFF',
       date: 'WEEK 1',
-      description: 'Assembled the crew and scoped out the target. Intel gathered on security systems and escape routes.',
+      description: 'Prakalpa registrations open and teams onboarded with the official kickoff, rules briefing, and event roadmap.',
     },
     {
       id: 2,
-      title: 'CREW ASSEMBLY',
+      title: 'IDEATION & TEAM BUILDING',
       date: 'WEEK 2',
-      description: 'Recruited specialists: demolitions expert, hacker, and getaway driver. Equipment procurement in progress.',
+      description: 'Participants formed strong teams, explored domains, and refined problem statements into feasible project ideas.',
     },
     {
       id: 3,
-      title: 'RECONNAISSANCE',
+      title: 'THINKSPRINT 2.0',
       date: 'WEEK 3',
-      description: 'Detailed surveillance complete. Security patterns documented. Blueprints acquired from inside source.',
+      description: 'ThinkSprint kickoff with rapid ideation, mentoring sessions, and problem statements finalized for the final build phase.',
     },
     {
       id: 4,
-      title: 'THE SETUP',
+      title: 'PROTOTYPE REVIEW',
       date: 'WEEK 4',
-      description: 'Vehicles prepared. Weapons cache secured. Final walkthrough completed. All systems go.',
+      description: 'Working prototypes were built and tested',
     },
     {
       id: 5,
-      title: 'EXECUTION',
+      title: 'PRAKALPA 2026',
       date: 'WEEK 5',
-      description: 'Mission accomplished. Target secured. Clean getaway achieved. Payout distributed to crew.',
+      description: 'Final showcase at Prakalpa 2026 with live demos, jury evaluation, and team presentations in front of the audience.',
     },
   ];
 
@@ -124,7 +124,7 @@ const Timeline: React.FC = () => {
         `}
       </style>
       <div
-  className="min-h-screen py-8 md:py-16 px-4 relative overflow-hidden"
+  className="relative min-h-screen px-4 py-8 overflow-hidden md:py-16"
   style={{
     backgroundImage: `url(${NewT})`,
     backgroundSize: 'cover',
@@ -138,14 +138,14 @@ const Timeline: React.FC = () => {
           backgroundSize: '50px 50px'
         }}></div>
 
-        <div className="max-w-5xl mx-auto relative z-10">
-  <div className="flex justify-center mb-8 md:mb-12 w-full">
-    <h1 className="mission-timeline-text w-full text-center">MISSION TIMELINE</h1>
+        <div className="relative z-10 max-w-5xl mx-auto">
+  <div className="flex justify-center w-full mb-8 md:mb-12">
+    <h1 className="w-full text-center mission-timeline-text">MISSION TIMELINE</h1>
   </div>
   
           <div className="relative">
             {/* Neon Center Line - Desktop centered, Mobile left-aligned */}
-            <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-1 h-full" style={{
+            <div className="absolute w-1 h-full left-6 md:left-1/2 md:transform md:-translate-x-1/2" style={{
               background: '#ff006e',
               boxShadow: '0 0 12px rgba(255, 0, 110, 0.6), 0 0 24px rgba(255, 0, 110, 0.3)'
             }}></div>
@@ -159,7 +159,7 @@ const Timeline: React.FC = () => {
                 } flex-row`}
               >
                 {/* Mobile: Full width with left alignment, Desktop: Half width alternating */}
-                <div className="w-full md:w-1/2 flex justify-center">
+                <div className="flex justify-center w-full md:w-1/2">
                   <div
                     className={`w-full md:w-11/12 pl-12 md:pl-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} transition-all duration-700 ${
                       visibleItems.has(item.id)
@@ -167,17 +167,17 @@ const Timeline: React.FC = () => {
                         : 'opacity-0 -translate-x-10 md:-translate-x-20'
                     }`}
                   >
-                    <div className="bg-black/80 backdrop-blur-sm rounded-lg shadow-2xl p-4 md:p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg relative overflow-hidden">
+                    <div className="relative p-4 overflow-hidden transition-all duration-500 rounded-lg shadow-2xl bg-black/80 backdrop-blur-sm md:p-6 hover:-translate-y-2 hover:shadow-lg">
                       
 
                       
-                      <div className="text-xs font-bold text-cyan-400 mb-2 gta-text tracking-widest bg-purple-900/50 px-3 py-1 inline-block rounded">
+                      <div className="inline-block px-3 py-1 mb-2 text-xs font-bold tracking-widest rounded text-cyan-400 gta-text bg-purple-900/50">
                         {item.date}
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold text-pink-500 mb-2 md:mb-3 gta-title tracking-wider">
+                      <h3 className="mb-2 text-xl font-bold tracking-wider text-pink-500 md:text-2xl md:mb-3 gta-title">
                         {item.title}
                       </h3>
-                      <p className="text-sm md:text-base text-gray-300 leading-relaxed gta-text">{item.description}</p>
+                      <p className="text-sm leading-relaxed text-gray-300 md:text-base gta-text">{item.description}</p>
                       
                       {/* Wanted stars indicator */}
                       <div className="flex gap-1 mt-3">
@@ -199,7 +199,7 @@ const Timeline: React.FC = () => {
         </div>
 
         
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-purple-900/50 to-transparent pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none bg-gradient-to-t from-purple-900/50 to-transparent"></div>
       </div>
     </>
   );
