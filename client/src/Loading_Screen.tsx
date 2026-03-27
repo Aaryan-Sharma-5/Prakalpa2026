@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import gtaBg1 from "./assets/Gta6_bg.jpeg"
+import gtaBg1 from "./assets/Prakalpa26.png"
 import gtaBg2 from "./assets/Load_1.webp"
 import gtaBg3 from "./assets/Load_2.webp"
 
