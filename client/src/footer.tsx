@@ -4,71 +4,71 @@ import IsteLogo from "./assets/ISTE_logo.png";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative w-full bg-zinc-950 text-white overflow-hidden border-t border-white/10">
+    <footer id="contact" className="relative w-full overflow-hidden text-white border-t bg-zinc-950 border-white/10">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
+      <div className="relative z-10 px-6 py-12 mx-auto max-w-7xl">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-8">
+        <div className="grid grid-cols-1 gap-12 mb-8 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
 
           {/* Brand Section (Span 4 cols) */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="space-y-6 lg:col-span-4">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl flex items-center justify-center shadow-inner">
-                <img src={IsteLogo} alt="ISTE LOGO" className="w-10 h-10 object-contain" />
+              <div className="flex items-center justify-center border shadow-inner w-14 h-14 bg-white/5 backdrop-blur-sm border-white/10 rounded-2xl">
+                <img src={IsteLogo} alt="ISTE LOGO" className="object-contain w-10 h-10" />
               </div>
               <div>
                 <h3 className="text-2xl font-bold tracking-tight text-white">ISTE KJSSE</h3>
-                <p className="text-xs text-zinc-400 uppercase tracking-wider font-medium">Student Chapter</p>
+                <p className="text-xs font-medium tracking-wider uppercase text-zinc-400">Student Chapter</p>
               </div>
             </div>
-            <p className="text-zinc-400 text-sm leading-relaxed max-w-sm">
+            <p className="max-w-sm text-sm leading-relaxed text-zinc-400">
               Empowering engineering students through technical excellence, innovation, and leadership at K. J. Somaiya School of Engineering.
             </p>
           </div>
 
           {/* Navigation (Span 2 cols) */}
           <div className="lg:col-span-2">
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-6">Explore</h4>
+            <h4 className="mb-6 text-sm font-semibold tracking-wider text-white uppercase">Explore</h4>
             <ul className="space-y-4 text-sm text-zinc-400">
               <li>
                 <a href="#home" className="group flex items-center gap-2 hover:text-pink-300 transition-all hover:translate-x-2 w-fit relative after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all after:duration-300 hover:after:w-full">
-                  <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-pink-300">›</span>
+                  <span className="text-pink-300 transition-all -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0">›</span>
                   Home
                 </a>
               </li>
               <li>
                 <a href="#themes" className="group flex items-center gap-2 hover:text-pink-300 transition-all hover:translate-x-2 w-fit relative after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all after:duration-300 hover:after:w-full">
-                  <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-pink-300">›</span>
+                  <span className="text-pink-300 transition-all -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0">›</span>
                   Themes
                 </a>
               </li>
               <li>
                 <a href="#prizes" className="group flex items-center gap-2 hover:text-pink-300 transition-all hover:translate-x-2 w-fit relative after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all after:duration-300 hover:after:w-full">
-                  <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-pink-300">›</span>
+                  <span className="text-pink-300 transition-all -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0">›</span>
                   Prizes
                 </a>
               </li>
               <li>
                 <a href="#timeline" className="group flex items-center gap-2 hover:text-pink-300 transition-all hover:translate-x-2 w-fit relative after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all after:duration-300 hover:after:w-full">
-                  <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-pink-300">›</span>
+                  <span className="text-pink-300 transition-all -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0">›</span>
                   Timeline
                 </a>
               </li>
               <li>
                 <a href="#gallery" className="group flex items-center gap-2 hover:text-pink-300 transition-all hover:translate-x-2 w-fit relative after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all after:duration-300 hover:after:w-full">
-                  <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-pink-300">›</span>
+                  <span className="text-pink-300 transition-all -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0">›</span>
                   Memories
                 </a>
               </li>
               <li>
                 <a href="#sponsors" className="group flex items-center gap-2 hover:text-pink-300 transition-all hover:translate-x-2 w-fit relative after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all after:duration-300 hover:after:w-full">
-                  <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-pink-300">›</span>
+                  <span className="text-pink-300 transition-all -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0">›</span>
                   Sponsors
                 </a>
               </li>
               <li>
                 <a href="#faqs" className="group flex items-center gap-2 hover:text-pink-300 transition-all hover:translate-x-2 w-fit relative after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all after:duration-300 hover:after:w-full">
-                  <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-pink-300">›</span>
+                  <span className="text-pink-300 transition-all -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0">›</span>
                   FAQ's
                 </a>
               </li>
@@ -77,7 +77,7 @@ export default function Footer() {
 
           {/* Contact Info (Span 3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-6">Contact Us</h4>
+            <h4 className="mb-6 text-sm font-semibold tracking-wider text-white uppercase">Contact Us</h4>
             <ul className="space-y-4 text-sm text-zinc-400">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-pink-300 shrink-0 mt-0.5" />
@@ -85,29 +85,29 @@ export default function Footer() {
                   href="https://maps.app.goo.gl/6kroUKL37xDwHUh46"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-pink-300 transition-colors"
+                  className="transition-colors hover:text-pink-300"
                 >
                   K.J Somaiya School of Engineering,<br />Vidyavihar, Mumbai
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-pink-300 shrink-0" />
-                <span>Tanish Shetty: <a href="tel:+917700048974" className="hover:text-pink-300 transition-colors">+91 77000 48974</a></span>
+                <span>Tanish Shetty: <a href="tel:+917700048974" className="transition-colors hover:text-pink-300">+91 77000 48974</a></span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-pink-300 shrink-0" />
-                <span>Aditi Kanagala: <a href="tel:+919820493896" className="hover:text-pink-300 transition-colors">+91 98204 93896</a></span>
+                <span>Aditi Kanagala: <a href="tel:+919820493896" className="transition-colors hover:text-pink-300">+91 98204 93896</a></span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-pink-300 shrink-0" />
-                <span>Manav Parekh: <a href="tel:+919987646965" className="hover:text-pink-300 transition-colors">+91 98204 93896</a></span>
+                <span>Manav Parekh: <a href="tel:+919987646965" className="transition-colors hover:text-pink-300">+91 99876 46965</a></span>
               </li>
             </ul>
           </div>
 
           {/* Socials (Span 3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-6">Connect</h4>
+            <h4 className="mb-6 text-sm font-semibold tracking-wider text-white uppercase">Connect</h4>
             <div className="flex gap-3">
               <SocialLink href="https://iste-web-bkgm.vercel.app/" label="ISTE Website">
                 <Globe className="w-5 h-5" />
@@ -120,8 +120,8 @@ export default function Footer() {
               </SocialLink>
             </div>
 
-            <div className="mt-8 pt-2 border-t border-white/5">
-              <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=iste.engg@somaiya.edu" target="_blank" rel="noreferrer" className="group flex items-center gap-2 text-zinc-400 hover:text-pink-300 transition-colors text-sm">
+            <div className="pt-2 mt-8 border-t border-white/5">
+              <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=iste.engg@somaiya.edu" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm transition-colors group text-zinc-400 hover:text-pink-300">
                 <span>Send us a message</span>
                 <ExternalLink className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
               </a>
@@ -130,15 +130,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
-          <p className="text-zinc-500 text-sm">
+        <div className="flex flex-col items-center justify-between pt-8 border-t md:flex-row border-white/10">
+          <p className="text-sm text-zinc-500">
             © {new Date().getFullYear()} Designed by ISTE KJSSE. All rights reserved.
           </p>
-          <div className="flex items-center gap-1 text-sm text-zinc-500 mt-4 md:mt-0">
+          <div className="flex items-center gap-1 mt-4 text-sm text-zinc-500 md:mt-0">
             <span>Made with</span>
             <span className="mx-0.5">🤞</span>
             <span>by</span>
-            <a href="#home" className="text-white transition-colors font-medium ml-1">ISTE Council</a>
+            <a href="#home" className="ml-1 font-medium text-white transition-colors">ISTE Council</a>
           </div>
         </div>
       </div>
@@ -153,7 +153,7 @@ function SocialLink({ href, label, children }: { href: string; label: string; ch
       aria-label={label}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-pink-300 hover:text-black hover:scale-110 transition-all duration-300"
+      className="flex items-center justify-center w-10 h-10 transition-all duration-300 border rounded-full bg-white/5 border-white/10 text-zinc-400 hover:bg-pink-300 hover:text-black hover:scale-110"
     >
       {children}
     </a>

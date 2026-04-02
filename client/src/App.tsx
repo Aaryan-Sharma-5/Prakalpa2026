@@ -15,7 +15,7 @@ import RegistrationForm from "./RegistrationForm"
 import Timeline from "./Timeline"
 import Prizes from "./Prizes"
 import FAQ from "./FAQ"
-//import Sponsors from "./Sponsors"
+import Sponsors from "./Sponsors"
 import Footer from "./footer"
 
 
@@ -117,7 +117,7 @@ function App() {
               { label: "Prizes", href: "#prizes" },
               { label: "Timeline", href: "#timeline" },
               { label: "Memories", href: "#gallery" },
-              //{ label: "Sponsors", href: "#sponsors" },
+              { label: "Sponsors", href: "#sponsors" },
               { label: "FAQs", href: "#faqs" },
             ]}
           />
@@ -151,7 +151,7 @@ function App() {
               className="hidden md:block fixed top-[300px] right-12 z-50 pointer-events-none"
             >
               <motion.a
-                href="/Prakalpa26Brochure.pdf"
+                href="/Prakalpa26OldBrochure.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.06 }}
@@ -223,7 +223,7 @@ function App() {
       {!loading && <div id="prizes"><Prizes /></div>}
       {!loading && <div id="timeline"><Timeline /></div>}
       {!loading && <div id="gallery"><Gallery /></div>}
-      {/*{!loading && <div id="sponsors"><Sponsors /></div>}*/}
+      {!loading && <div id="sponsors"><Sponsors /></div>}
       {!loading && <div id="faqs"><FAQ /></div>}
 
       {/* ================= FOOTER ================= */}
