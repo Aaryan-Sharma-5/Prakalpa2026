@@ -1,13 +1,14 @@
-import React from "react";
+  import React from "react";
 import IsteLogo from "./assets/ISTE_logo.png"; // Placeholder image
-
+import VybexLogo from "./assets/sponsor_images/vybex_clothing.png";
+import Web3Logo from "./assets/sponsor_images/web3_aligarh_community.png";
 // Placeholder data for sponsors
-const SPONSORS = [
-  { id: 1, name: "Sponsor 1", logo: IsteLogo },
-  { id: 2, name: "Sponsor 2", logo: IsteLogo },
-  { id: 3, name: "Sponsor 3", logo: IsteLogo },
-  { id: 4, name: "Sponsor 4", logo: IsteLogo },
-];
+  const SPONSORS = [
+    { id: 1, name: "vybex_clothing", logo: VybexLogo },
+    { id: 2, name: "web3_aligarh_community", logo: Web3Logo },
+    // { id: 3, name: "", logo: IsteLogo },
+    // { id: 4, name: "Sponsor 4", logo: IsteLogo },
+  ];
 
 export default function Sponsors() {
   return (
@@ -30,12 +31,12 @@ export default function Sponsors() {
         </div>
 
         {/* Sponsor Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {SPONSORS.map((sponsor) => (
-            <div
-              key={sponsor.id}
-              className="group relative bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col items-center justify-center gap-6 hover:bg-white/2 hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] transition-all duration-300"
-            >
+        <div className="flex flex-wrap justify-center gap-20 w-full">
+  {SPONSORS.map((sponsor) => (
+    <div
+      key={sponsor.id}
+      className="group relative bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col items-center justify-center gap-6 hover:bg-white/2 hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] transition-all duration-300 flex-1 min-w-[200px] max-w-[300px]"
+    >
               <div className="w-32 h-32 relative flex items-center justify-center">
                 {/* Image Container */}
                 <img
