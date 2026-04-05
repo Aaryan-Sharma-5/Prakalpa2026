@@ -132,7 +132,7 @@ const PillNav: React.FC<PillNavProps> = ({
           </button>
         </div>
 
-        <ul className="flex flex-col gap-5 list-none p-0 m-0">
+        <ul className="flex flex-col gap-3 list-none p-0 m-0">
           {items.map(item => (
             <li key={item.href}>
               {isRouterLink(item.href) ? (
@@ -193,7 +193,7 @@ const PillNav: React.FC<PillNavProps> = ({
           {LogoComponent}
 
           <div className="ml-2">
-            <ul className="flex items-center gap-4 m-0 p-0 list-none">
+            <ul className="flex items-center gap-2 m-0 p-0 list-none">
               {items.map((item, i) => {
                 const isActive = activeHref === item.href;
 

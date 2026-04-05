@@ -37,7 +37,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const handleScroll = () => { setShowButton(window.scrollY < 25); };
+    const handleScroll = () => { setShowButton(window.scrollY < 5); };
     handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -148,7 +148,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.2 }}
-              className="hidden md:block fixed top-[300px] right-12 z-50 pointer-events-none"
+              className="hidden md:block fixed top-[360px] right-12 z-50 pointer-events-none"
             >
               <motion.a
                 href="/Prakalpa26OldBrochure.pdf"
@@ -187,7 +187,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.15 }}
-              className="md:hidden fixed bottom-24 left-0 right-0 flex justify-center z-40 pointer-events-none"
+              className="md:hidden fixed bottom-20 left-0 right-0 flex justify-center z-40 pointer-events-none"
             >
               <motion.a
                 href="/Prakalpa26Brochure.pdf"
