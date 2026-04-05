@@ -151,7 +151,7 @@ function App() {
               className="hidden md:block fixed top-[360px] right-12 z-50 pointer-events-none"
             >
               <motion.a
-                href="/Prakalpa26OldBrochure.pdf"
+                href="/Prakalpa26Brochure.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.06 }}
